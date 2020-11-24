@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5010800418898405668
+  m_GuidHigh: 5514910458669748908
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5089564069787095882
+      m_GuidHigh: 4009340097997591485
+    m_SerializedTextureGuid:
+      m_GuidLow: 6333462172598893485
+      m_GuidHigh: 18132948607173069000
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: schoolmap
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5249975238802429025
+      m_GuidHigh: 9883324465264585388
+    m_SerializedTextureGuid:
+      m_GuidLow: 12093431585628290094
+      m_GuidHigh: 12421796719895696168
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: bustimes
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4901004983396023515
+      m_GuidHigh: 1465347459421440441
+    m_SerializedTextureGuid:
+      m_GuidLow: 0
+      m_GuidHigh: 0
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: 
+    m_Texture: {fileID: 0}
