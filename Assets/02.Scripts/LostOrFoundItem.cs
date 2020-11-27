@@ -9,6 +9,7 @@ public class LostOrFoundItem : MonoBehaviour
     public Toggle found;
 
     private LostAndFound item;
+    private PlayerPrefs savefile;
 
     // Start is called before the first frame update
     void Start()
@@ -19,17 +20,20 @@ public class LostOrFoundItem : MonoBehaviour
         item.image = null;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void LoadImage()
     {
         Debug.Log("Image Loaded");
         Debug.Log("Hover image on top of button???");
         //item.image =
+    }
+
+    public void LoadLaptop()
+    {
+        item.image = Resources.Load<Texture2D>("laptop");
+    }
+    public void LoadWallet()
+    {
+        item.image = Resources.Load<Texture2D>("wallet");
     }
 
     public void LoadPhoto()
@@ -41,7 +45,6 @@ public class LostOrFoundItem : MonoBehaviour
 
     public void Post()
     {
-        Debug.Log("Save Data");
         item.objectName = GameObject.FindGameObjectWithTag("Title").GetComponent<InputField>().text;
 
         if (item.objectName == "")
@@ -68,5 +71,12 @@ public class LostOrFoundItem : MonoBehaviour
     private void SaveData()
     {
         //DontDestroyOnLoad, PlayerPrefs
+        PlayerPrefs.SetString(item.objectName, item.post);
+        PlayerPrefs.Save();
+
+        //Debug.Log(item.objectName);
+        //Debug.Log(item.post);
+        
+        Debug.Log("save data");
     }
 }

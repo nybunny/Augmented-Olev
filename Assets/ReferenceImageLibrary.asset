@@ -35,13 +35,3 @@ MonoBehaviour:
     m_SpecifySize: 0
     m_Name: bustimes
     m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 4901004983396023515
-      m_GuidHigh: 1465347459421440441
-    m_SerializedTextureGuid:
-      m_GuidLow: 0
-      m_GuidHigh: 0
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: 
-    m_Texture: {fileID: 0}
