@@ -7,6 +7,7 @@ public class ToBoard : MonoBehaviour
 {
     public GameObject post;
     public GameObject postList;
+    public GameObject postView;
 
     // Start is called before the first frame update
     void Start()
@@ -37,5 +38,6 @@ public class ToBoard : MonoBehaviour
     {
         postList.gameObject.SetActive(true);
         post.gameObject.SetActive(false);
+        postView.gameObject.SetActive(false);
     }
 }
