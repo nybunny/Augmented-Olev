@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/01.Scenes/Scene0.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/01.Scenes/LostAndFoundList.unity
-    guid: d7c40facfb3f3bb42b1242ab0bd2c23c
-  - enabled: 1
     path: Assets/01.Scenes/LostAndFound.unity
     guid: a91e7142c5a5a51408b7a78580193c03
   m_configObjects:

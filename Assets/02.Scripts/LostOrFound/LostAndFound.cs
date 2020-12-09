@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class LostAndFound
 {
+    public int objectNum;
     public string objectName;
 
     public bool lost;
