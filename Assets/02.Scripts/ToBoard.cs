@@ -36,8 +36,8 @@ public class ToBoard : MonoBehaviour
 
     public void BackToLFList()
     {
-        postList.gameObject.SetActive(true);
         post.gameObject.SetActive(false);
         postView.gameObject.SetActive(false);
+        postList.gameObject.SetActive(true);
     }
 }

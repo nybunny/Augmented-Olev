@@ -15,14 +15,17 @@ public class LostOrFoundPostView : MonoBehaviour
     public GameObject iLostIt;
     public GameObject iFoundIt;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         itemToShow = new LostAndFound(); // just in case
+        itemToShow.lostOrFound = -1;
+        itemToShow.objectName = "ctp445";
+        itemToShow.objectNum = -1;
+        itemToShow.post = "this is a test";
     }
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
         
     }

@@ -9,6 +9,7 @@ public class LostOrFoundItem : MonoBehaviour
     public Toggle found;
 
     public GameObject postView;
+    public InputField title, content;
 
     private LostAndFound item;
 
@@ -24,6 +25,8 @@ public class LostOrFoundItem : MonoBehaviour
         item.objectNum = GetHighestItemNumber() + 1;
         item.lostOrFound = -1;
         item.image = null;
+        title.text = "";
+        content.text = "";
     }
 
     private int GetHighestItemNumber()
@@ -53,7 +56,8 @@ public class LostOrFoundItem : MonoBehaviour
 
     public void Post()
     {
-        item.objectName = GameObject.FindGameObjectWithTag("Title").GetComponent<InputField>().text;
+        item.objectName = title.text;
+        Debug.Log(item.objectName);
 
         if (item.objectName == "")
         {
@@ -61,7 +65,8 @@ public class LostOrFoundItem : MonoBehaviour
             return;
         }
 
-        item.post = GameObject.FindGameObjectWithTag("Content").GetComponent<InputField>().text;
+        item.post = content.text;
+        //Debug.Log(item.lostOrFound);
 
         if (lost.isOn)
         {
@@ -73,7 +78,7 @@ public class LostOrFoundItem : MonoBehaviour
             item.lostOrFound = 1;
             Debug.Log("Post in <Found>");
         }
-
+        Debug.Log(item.lostOrFound);
         if ((item.lostOrFound == 0) || (item.lostOrFound == 1))
             SaveData();
         else
@@ -95,9 +100,9 @@ public class LostOrFoundItem : MonoBehaviour
 
         //Disable PostWrite & Go to PostView
         this.gameObject.SetActive(false);
-        postView.SetActive(true);
+        
         postView.GetComponent<LostOrFoundPostView>().WhatToShow(item.objectNum, item.objectName);
-
+        postView.SetActive(true);
     }
     /*
      PlayerPrefs key -> value
