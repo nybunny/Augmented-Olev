@@ -14,7 +14,7 @@ public class LostOrFoundItem : MonoBehaviour
     private LostAndFound item;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         PlayerPrefs.DeleteAll(); //나중에 지우시오
     }
@@ -35,8 +35,8 @@ public class LostOrFoundItem : MonoBehaviour
             return PlayerPrefs.GetInt("highestnum");
         else
         {
-            PlayerPrefs.SetInt("highestnum", 0);
-            return 0;
+            PlayerPrefs.SetInt("highestnum", -1);
+            return -1;
         }
     }
 

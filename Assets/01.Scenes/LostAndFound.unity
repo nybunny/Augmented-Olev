@@ -3391,6 +3391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35ad96aecc37e442ae9f4732b5b7dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  postPrefab: {fileID: 0}
+  postView: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!1 &624882895
 GameObject:
   m_ObjectHideFlags: 0
@@ -4532,7 +4535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1043476581
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4558,7 +4561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043476582
@@ -5967,7 +5970,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "No.\t\tTitle\t\tWriter\n1\t\that\t\tmadhatter\n2\t\twallet\t\tme\n"
+  m_Text: "No.\tLost/Found\tTitle\n1\tLost\t\tWallet\n2\tFound\t\tLaptop\n"
 --- !u!222 &1277368703
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8565,8 +8568,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -285, y: 416}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -31, y: 416}
+  m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1852324274
 MonoBehaviour:
@@ -9388,7 +9391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1255, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2067034319
@@ -9403,6 +9406,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35ad96aecc37e442ae9f4732b5b7dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  postPrefab: {fileID: 9006772810140612582, guid: 5c652df87b43ec64aa0f463ef66ac686,
+    type: 3}
+  postView: {fileID: 2072791236}
+  parent: {fileID: 2067034318}
 --- !u!1 &2072502216
 GameObject:
   m_ObjectHideFlags: 0
@@ -9493,7 +9500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2072791237
 RectTransform:
   m_ObjectHideFlags: 0
