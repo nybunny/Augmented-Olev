@@ -11,25 +11,19 @@ public class LostOrFoundItem : MonoBehaviour
     public GameObject postView;
 
     private LostAndFound item;
-    private int item_stateNum;
-
-    private int highestNum;
 
     // Start is called before the first frame update
     void Start()
     {
         PlayerPrefs.DeleteAll(); //나중에 지우시오
-        
     }
 
     private void OnEnable()
     {
         item = new LostAndFound();
         item.objectNum = GetHighestItemNumber() + 1;
-        item.lost = false;
-        item.found = false;
+        item.lostOrFound = -1;
         item.image = null;
-        item_stateNum = -1;
     }
 
     private int GetHighestItemNumber()
@@ -71,21 +65,19 @@ public class LostOrFoundItem : MonoBehaviour
 
         if (lost.isOn)
         {
-            item.lost = true;
-            item_stateNum = 0;
+            item.lostOrFound = 0;
             Debug.Log("Post in <Lost>");
         }
         else if (found.isOn)
         {
-            item.found = true;
-            item_stateNum = 1;
+            item.lostOrFound = 1;
             Debug.Log("Post in <Found>");
         }
 
-        if ((item_stateNum == 0) || (item_stateNum == 1))
+        if ((item.lostOrFound == 0) || (item.lostOrFound == 1))
             SaveData();
         else
-            Debug.Log("ERROR with item_stateNum");
+            Debug.Log("ERROR with item's state(lost/found) number");
         
     }
 
@@ -94,7 +86,7 @@ public class LostOrFoundItem : MonoBehaviour
         PlayerPrefs.SetInt("highestnum", item.objectNum);
 
         PlayerPrefs.SetString("item_" + item.objectNum.ToString(), item.objectName);
-        PlayerPrefs.SetInt(item.objectName + item.objectNum.ToString() + "_state", item_stateNum);
+        PlayerPrefs.SetInt(item.objectName + item.objectNum.ToString() + "_state", item.lostOrFound);
         PlayerPrefs.SetString(item.objectName + item.objectNum.ToString() + "_post", item.post);
         // save the image
         PlayerPrefs.Save();
@@ -104,6 +96,7 @@ public class LostOrFoundItem : MonoBehaviour
         //Disable PostWrite & Go to PostView
         this.gameObject.SetActive(false);
         postView.SetActive(true);
+        postView.GetComponent<LostOrFoundPostView>().WhatToShow(item.objectNum, item.objectName);
 
     }
     /*
@@ -111,9 +104,9 @@ public class LostOrFoundItem : MonoBehaviour
     highestnum (int)
 
     **for each lost item**
-    item_(objectNum) -> (objectName)
-    (objectName)(objectNum)_state -> 0 lost / 1 found / 2 done
-    (objectName)(objectNum)_post -> (post)
+    item_(objectNum) -> (item.objectName)
+    (objectName)(objectNum)_state -> (item.lostOrFound) 0 lost / 1 found / 2 done
+    (objectName)(objectNum)_post -> (item.post)
     (objectName)(objectNum)_image -> ???
 
      */
