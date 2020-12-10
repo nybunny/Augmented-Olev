@@ -11,5 +11,5 @@ public class LostAndFound
     public int lostOrFound; // 0 if lost, 1 if found
 
     public string post;
-    public Texture2D image;
+    public Sprite image;
 }

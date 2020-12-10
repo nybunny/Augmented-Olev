@@ -22,6 +22,7 @@ public class LostOrFoundPostView : MonoBehaviour
         itemToShow.objectName = "ctp445";
         itemToShow.objectNum = -1;
         itemToShow.post = "this is a test";
+        itemToShow.image = Resources.Load<Sprite>("basicImage");
     }
 
     // Start is called before the first frame update
@@ -52,6 +53,7 @@ public class LostOrFoundPostView : MonoBehaviour
         }
         title.text = itemToShow.objectName;
         content.text = itemToShow.post;
+        image.sprite = itemToShow.image;
     }
 
     public void WhatToShow(int objectNum, string objectName)
@@ -61,6 +63,10 @@ public class LostOrFoundPostView : MonoBehaviour
         itemToShow.objectName = objectName;
         itemToShow.lostOrFound = PlayerPrefs.GetInt(objectName + objectNum.ToString() + "_state");
         itemToShow.post = PlayerPrefs.GetString(objectName + objectNum.ToString() + "_post");
-        //itemToShow.image
+        if (PlayerPrefs.HasKey(objectName + objectNum.ToString() + "_image"))
+            itemToShow.image = Resources.Load<Sprite>(PlayerPrefs.GetString(objectName + objectNum.ToString() + "_image"));
+        else
+            itemToShow.image = Resources.Load<Sprite>("basicImage");
+        //itemToShow.image -> from gallery?
     }
 }

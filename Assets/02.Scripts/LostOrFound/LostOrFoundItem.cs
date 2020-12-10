@@ -42,7 +42,7 @@ public class LostOrFoundItem : MonoBehaviour
 
     public void LoadImage(Texture2D image)
     {
-        item.image = Resources.Load<Texture2D>(image.name);
+        item.image = Resources.Load<Sprite>(image.name);
         Debug.Log("Image Loaded");
         Debug.Log("Hover image on top of button???");
     }
@@ -93,6 +93,8 @@ public class LostOrFoundItem : MonoBehaviour
         PlayerPrefs.SetString("item_" + item.objectNum.ToString(), item.objectName);
         PlayerPrefs.SetInt(item.objectName + item.objectNum.ToString() + "_state", item.lostOrFound);
         PlayerPrefs.SetString(item.objectName + item.objectNum.ToString() + "_post", item.post);
+        if (item.image != null)
+           PlayerPrefs.SetString(item.objectName + item.objectNum.ToString() + "_image", item.image.name);
         // save the image
         PlayerPrefs.Save();
         
