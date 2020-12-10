@@ -3392,7 +3392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   postPrefab: {fileID: 0}
-  postView: {fileID: 0}
   parent: {fileID: 0}
 --- !u!1 &624882895
 GameObject:
@@ -9362,11 +9361,11 @@ GameObject:
   - component: {fileID: 2067034319}
   m_Layer: 5
   m_Name: PostList
-  m_TagString: Untagged
+  m_TagString: PostList
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2067034318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9408,7 +9407,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   postPrefab: {fileID: 9006772810140612582, guid: 5c652df87b43ec64aa0f463ef66ac686,
     type: 3}
-  postView: {fileID: 2072791236}
   parent: {fileID: 2067034318}
 --- !u!1 &2072502216
 GameObject:
@@ -9496,11 +9494,11 @@ GameObject:
   - component: {fileID: 2072791238}
   m_Layer: 5
   m_Name: PostView
-  m_TagString: Untagged
+  m_TagString: PostView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2072791237
 RectTransform:
   m_ObjectHideFlags: 0

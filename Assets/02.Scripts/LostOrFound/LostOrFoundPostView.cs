@@ -14,7 +14,7 @@ public class LostOrFoundPostView : MonoBehaviour
 
     public GameObject iLostIt;
     public GameObject iFoundIt;
-
+    /*
     private void Awake()
     {
         itemToShow = new LostAndFound(); // just in case
@@ -23,12 +23,15 @@ public class LostOrFoundPostView : MonoBehaviour
         itemToShow.objectNum = -1;
         itemToShow.post = "this is a test";
         itemToShow.image = Resources.Load<Sprite>("basicImage");
+        Debug.Log("basic image loaded to PostView");
     }
-
+    PostView가 LostOrFoundItem.cs 등으로 Enable 되면 
+    이 Awake() 함수가 WhatToShow() 보다 나중에 발동되어서 보여줘야 하는 데이터를 덮어썼던 것임
+    */
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("post view start");
     }
 
     private void OnEnable()
@@ -56,17 +59,26 @@ public class LostOrFoundPostView : MonoBehaviour
         image.sprite = itemToShow.image;
     }
 
+    public void OnDisable()
+    {
+        itemToShow = new LostAndFound();
+    }
+
     public void WhatToShow(int objectNum, string objectName)
     {
+        Debug.Log("made it here1");
         itemToShow = new LostAndFound();
         itemToShow.objectNum = objectNum;
         itemToShow.objectName = objectName;
         itemToShow.lostOrFound = PlayerPrefs.GetInt(objectName + objectNum.ToString() + "_state");
         itemToShow.post = PlayerPrefs.GetString(objectName + objectNum.ToString() + "_post");
+        Debug.Log("made it here2");
         if (PlayerPrefs.HasKey(objectName + objectNum.ToString() + "_image"))
             itemToShow.image = Resources.Load<Sprite>(PlayerPrefs.GetString(objectName + objectNum.ToString() + "_image"));
         else
             itemToShow.image = Resources.Load<Sprite>("basicImage");
         //itemToShow.image -> from gallery?
+        Debug.Log("made it here3");
+        Debug.Log(itemToShow.objectName);
     }
 }

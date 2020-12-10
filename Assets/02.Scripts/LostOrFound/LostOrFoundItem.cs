@@ -13,11 +13,6 @@ public class LostOrFoundItem : MonoBehaviour
 
     private LostAndFound item;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        PlayerPrefs.DeleteAll(); //나중에 지우시오
-    }
 
     private void OnEnable()
     {
