@@ -11,11 +11,6 @@ public class LFListManager : MonoBehaviour
     private int i;
     private LostAndFound[] postList;
 
-    void Awake()
-    {
-        Debug.Log("delete all playerprefs");
-        PlayerPrefs.DeleteAll(); //나중에 지우시오
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +31,7 @@ public class LFListManager : MonoBehaviour
         i = -1;
         if (PlayerPrefs.HasKey("highestnum"))
             i = PlayerPrefs.GetInt("highestnum");
-        LostAndFound[] postList = new LostAndFound[i+1];
+        postList = new LostAndFound[i+1];
         Debug.Log("i = " + i.ToString());
         for (int j = 0; j < (i+1) ; j++)
         {
@@ -48,8 +43,11 @@ public class LFListManager : MonoBehaviour
 
             GameObject nextLine = Instantiate(postPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
             nextLine.transform.SetParent(parent, false);
-            postPrefab.transform.GetChild(0).GetComponent<Text>().text = j.ToString();
-            postPrefab.transform.GetChild(2).GetComponent<Text>().text = postList[j].objectName;
+            nextLine.transform.Find("Num").GetComponent<Text>().text = j.ToString();
+            //nextLine.transform.Find("Num").GetComponent<Text>().text = "j";
+            nextLine.transform.Find("Title").GetComponent<Text>().text = postList[j].objectName;
+            Debug.Log(postList[j].objectName);
+
 
         }
     }

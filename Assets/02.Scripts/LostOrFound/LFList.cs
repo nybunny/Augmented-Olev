@@ -12,9 +12,8 @@ public class LFList : MonoBehaviour
     void Start()
     {
         canvas = GameObject.Find("Canvas");
-        postView = canvas.GetComponentInChildren
-        //postView = GameObject.FindGameObjectWithTag("PostView");
-       // postList = GameObject.FindGameObjectWithTag("PostList");
+        postView = canvas.transform.Find("PostView").gameObject;
+        postList = canvas.transform.Find("PostList").gameObject;
         Debug.Log("LFList.cs start");
     }
 
@@ -31,8 +30,9 @@ public class LFList : MonoBehaviour
         string name = PlayerPrefs.GetString("item_" + no.ToString());
         Debug.Log("title pressed2");
         //Disable PostList & Go to PostView
-        //postView.GetComponent<LostOrFoundPostView>().WhatToShow(no, name); //////////////
+        postView.GetComponent<LostOrFoundPostView>().WhatToShow(no, name); //////////////
         Debug.Log("title pressed3");
+
         postView.SetActive(true);
         postList.SetActive(false);
         Debug.Log("title pressed4");
