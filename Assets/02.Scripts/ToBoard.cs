@@ -9,6 +9,10 @@ public class ToBoard : MonoBehaviour
     public GameObject postList;
     public GameObject postView;
 
+    public GameObject noticeList;
+    public GameObject noticeView;
+    public GameObject noticeWrite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,5 +43,26 @@ public class ToBoard : MonoBehaviour
         post.gameObject.SetActive(false);
         postView.gameObject.SetActive(false);
         postList.gameObject.SetActive(true);
+    }
+
+    public void ToNoticeList()
+    {
+        noticeList.gameObject.SetActive(true);
+        noticeView.gameObject.SetActive(false);
+        noticeWrite.gameObject.SetActive(false);
+    }
+
+    public void ToNoticeView()
+    {
+        noticeList.SetActive(false);
+        noticeView.SetActive(true);
+        noticeWrite.SetActive(false);
+    }
+
+    public void ToNoticeWrite()
+    {
+        noticeList.SetActive(false);
+        noticeView.SetActive(false); //insurance
+        noticeWrite.SetActive(true);
     }
 }
