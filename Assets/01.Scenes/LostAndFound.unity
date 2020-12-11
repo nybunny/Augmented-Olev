@@ -408,7 +408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &78887924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5260,13 +5260,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 883426566}
+  - component: {fileID: 883426567}
   m_Layer: 5
   m_Name: NoticeList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &883426566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5291,6 +5292,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &883426567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883426565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5552892e2d900418cee9a72b86d51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listPrefab: {fileID: 5340219780313002778, guid: 1ba096a379a247347bb948aa3a6c105b,
+    type: 3}
+  parent: {fileID: 883426566}
 --- !u!1 &956939854
 GameObject:
   m_ObjectHideFlags: 0
@@ -9765,7 +9781,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 0
+  m_CharacterLimit: 50
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []

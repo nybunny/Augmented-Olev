@@ -32,9 +32,11 @@ public class NoticeView : MonoBehaviour
         content.text = postToShow.content;
         if ((postToShow != null) && (postToShow.commentsNum > 0))
         {
+            
             postToShow.comments = new Dictionary<int, string>();
             for (int i = 1; i < (postToShow.commentsNum + 1); i++) // upload comments to dictionary
             {
+                Debug.Log("1 or more comment");
                 postToShow.comments.Add(i, PlayerPrefs.GetString(postToShow.title + postToShow.postNum.ToString() + "_comment" + i.ToString()));
             }
 
@@ -51,6 +53,9 @@ public class NoticeView : MonoBehaviour
     {
         if ((postToShow != null) && (postToShow.commentsNum > 0))
         {
+            PlayerPrefs.SetInt(postToShow.title + postToShow.postNum.ToString() + "_comment", postToShow.commentsNum);
+            Debug.Log("comments save");
+            PlayerPrefs.Save();
             while (toDestroy.Count != 0)
                 Destroy(toDestroy.Dequeue());
         }
@@ -59,6 +64,8 @@ public class NoticeView : MonoBehaviour
 
     public void WhichPostToShow(int postNum, string postTitle)
     {
+        postToShow = new Notice();
+        postToShow.postNum = postNum;
         postToShow.title = postTitle;
         postToShow.content = PlayerPrefs.GetString(postTitle + postNum.ToString() + "_content");
         if (PlayerPrefs.HasKey(postTitle + postNum.ToString() + "_comment"))
@@ -70,7 +77,7 @@ public class NoticeView : MonoBehaviour
 
     private void PostComment(int commentNum)
     {
-        GameObject nextComment = Instantiate(commentPrefab, new Vector3(0f, 0 - 90*(commentNum - 1), 0f), Quaternion.identity);
+        GameObject nextComment = Instantiate(commentPrefab, new Vector3(0f, - 90*(commentNum - 1), 0f), Quaternion.identity);
         nextComment.transform.SetParent(parent, false);
 
         nextComment.transform.Find("Num").GetComponent<Text>().text = commentNum.ToString();
