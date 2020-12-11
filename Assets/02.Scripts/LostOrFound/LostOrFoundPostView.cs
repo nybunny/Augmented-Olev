@@ -39,19 +39,19 @@ public class LostOrFoundPostView : MonoBehaviour
         if (itemToShow.lostOrFound == 0)
         {
             lostOrFoundIndicator.text = "Lost";
-            iLostIt.SetActive(true);
+            iFoundIt.SetActive(true);
             iLostIt.SetActive(false);
         }   
         else if (itemToShow.lostOrFound == 1)
         {
             lostOrFoundIndicator.text = "Found";
-            iLostIt.SetActive(false);
+            iFoundIt.SetActive(false);
             iLostIt.SetActive(true);
         }
         else if (itemToShow.lostOrFound == 2)
         {
             lostOrFoundIndicator.text = "Item returned to owner";
-            iLostIt.SetActive(false);
+            iFoundIt.SetActive(false);
             iLostIt.SetActive(false);
         }
         title.text = itemToShow.objectName;
