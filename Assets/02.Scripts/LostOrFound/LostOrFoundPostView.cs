@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NativeGalleryNamespace;
+using System.Text;
 
 public class LostOrFoundPostView : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class LostOrFoundPostView : MonoBehaviour
     public Text title;
     public Text content;
     public Image image; //이거 어떻게 할지 고민 좀
+    public Sprite defaultImage;
 
     public GameObject iLostIt;
     public GameObject iFoundIt;
@@ -73,10 +76,25 @@ public class LostOrFoundPostView : MonoBehaviour
         itemToShow.lostOrFound = PlayerPrefs.GetInt(objectName + objectNum.ToString() + "_state");
         itemToShow.post = PlayerPrefs.GetString(objectName + objectNum.ToString() + "_post");
         Debug.Log("made it here2");
+
+        if (PlayerPrefs.HasKey(objectName + objectNum.ToString() + "_image"))
+        {
+            itemToShow.imageToString = PlayerPrefs.GetString(objectName + objectNum.ToString() + "_image");
+            byte[] texAsByte = Encoding.ASCII.GetBytes(itemToShow.imageToString); // string to byte array
+            Texture2D tex = new Texture2D(864, 432);
+            tex.LoadImage(texAsByte, false);
+            itemToShow.image = Sprite.Create(tex, new Rect(0f, -495f, 864f, 432f), new Vector2(0.5f, 0.5f));
+        }
+        else
+            itemToShow.image = defaultImage;
+        /*
+        // Resources folder does not exist in Build!
         if (PlayerPrefs.HasKey(objectName + objectNum.ToString() + "_image"))
             itemToShow.image = Resources.Load<Sprite>(PlayerPrefs.GetString(objectName + objectNum.ToString() + "_image"));
         else
-            itemToShow.image = Resources.Load<Sprite>("basicImage");
+            itemToShow.image = defaultImage;
+        */
+
         //itemToShow.image -> from gallery?
         Debug.Log("made it here3");
         Debug.Log(itemToShow.objectName);

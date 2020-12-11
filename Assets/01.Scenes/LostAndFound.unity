@@ -9073,6 +9073,7 @@ MonoBehaviour:
   title: {fileID: 1852324274}
   content: {fileID: 1896379449}
   image: {fileID: 1579526809}
+  defaultImage: {fileID: 21300000, guid: 7d5f814c1da049e4a888f46547134457, type: 3}
   iLostIt: {fileID: 1182518752}
   iFoundIt: {fileID: 1536317001}
 --- !u!1 &2093019889

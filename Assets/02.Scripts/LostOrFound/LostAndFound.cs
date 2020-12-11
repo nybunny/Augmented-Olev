@@ -12,4 +12,5 @@ public class LostAndFound
 
     public string post;
     public Sprite image;
+    public string imageToString;
 }

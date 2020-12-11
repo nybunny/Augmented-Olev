@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NativeGalleryNamespace;
+using System;
 
 public class LostOrFoundItem : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class LostOrFoundItem : MonoBehaviour
 
     public GameObject postView;
     public InputField title, content;
+    private Rect imageRect;
 
     private LostAndFound item;
 
@@ -22,6 +25,8 @@ public class LostOrFoundItem : MonoBehaviour
         item.image = null;
         title.text = "";
         content.text = "";
+
+        imageRect = new Rect(0f, -495f, 864f, 432f);
     }
 
     private int GetHighestItemNumber()
@@ -38,14 +43,28 @@ public class LostOrFoundItem : MonoBehaviour
     public void LoadImage(Texture2D image)
     {
         item.image = Resources.Load<Sprite>(image.name);
-        Debug.Log("Image Loaded");
-        Debug.Log("Hover image on top of button???");
     }
 
     public void LoadPhoto()
     {
-        Debug.Log("Go to Camera and take a picture");
-        Debug.Log("Show image somewhere???");
+        Debug.Log("Go to Gallery and get a picture");
+        NativeGallery.Permission permission = NativeGallery.GetImageFromGallery((path) =>
+        {
+           Debug.Log("Image path: " + path);
+           if (path != null)
+           {
+               Texture2D texture = NativeGallery.LoadImageAtPath(path, 512);
+               if (texture == null)
+               {
+                   Debug.Log("Couldn't load texture from " + path);
+                   return;
+               }
+                item.image = Sprite.Create(texture, imageRect, new Vector2(0.5f, 0.5f));
+
+                byte[] texAsByte = texture.EncodeToJPG(); // image to byte array
+                item.imageToString = Convert.ToBase64String(texAsByte); // byte array to string (for saving in PlayerPrefs)
+           }
+        }, "Select an image", "image/ipg");
         //item.image =
     }
 
@@ -89,7 +108,10 @@ public class LostOrFoundItem : MonoBehaviour
         PlayerPrefs.SetInt(item.objectName + item.objectNum.ToString() + "_state", item.lostOrFound);
         PlayerPrefs.SetString(item.objectName + item.objectNum.ToString() + "_post", item.post);
         if (item.image != null)
-           PlayerPrefs.SetString(item.objectName + item.objectNum.ToString() + "_image", item.image.name);
+        {
+            PlayerPrefs.SetString(item.objectName + item.objectNum.ToString() + "_image", item.imageToString);
+        }
+            //PlayerPrefs.SetString(item.objectName + item.objectNum.ToString() + "_image", item.image.name);
         // save the image
         PlayerPrefs.Save();
         
@@ -109,7 +131,7 @@ public class LostOrFoundItem : MonoBehaviour
     item_(objectNum) -> (item.objectName)
     (objectName)(objectNum)_state -> (item.lostOrFound) 0 lost / 1 found / 2 done
     (objectName)(objectNum)_post -> (item.post)
-    (objectName)(objectNum)_image -> ???
+    (objectName)(objectNum)_image -> (item.imageTsoString)
 
      */
 }
