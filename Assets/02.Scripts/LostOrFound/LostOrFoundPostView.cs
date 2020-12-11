@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using NativeGalleryNamespace;
-using System.Text;
+using System;
 
 public class LostOrFoundPostView : MonoBehaviour
 {
@@ -80,10 +80,11 @@ public class LostOrFoundPostView : MonoBehaviour
         if (PlayerPrefs.HasKey(objectName + objectNum.ToString() + "_image"))
         {
             itemToShow.imageToString = PlayerPrefs.GetString(objectName + objectNum.ToString() + "_image");
-            byte[] texAsByte = Encoding.ASCII.GetBytes(itemToShow.imageToString); // string to byte array
-            Texture2D tex = new Texture2D(864, 432);
+            //byte[] texAsByte = Encoding.ASCII.GetBytes(itemToShow.imageToString); // string to byte array
+            byte[] texAsByte = Convert.FromBase64String(itemToShow.imageToString);
+            Texture2D tex = new Texture2D(2, 2);
             tex.LoadImage(texAsByte, false);
-            itemToShow.image = Sprite.Create(tex, new Rect(0f, -495f, 864f, 432f), new Vector2(0.5f, 0.5f));
+            itemToShow.image = Sprite.Create(tex, new Rect(0f, 0f, tex.width, tex.height), new Vector2(0.5f, 0.5f));
         }
         else
             itemToShow.image = defaultImage;

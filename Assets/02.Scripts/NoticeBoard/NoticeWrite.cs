@@ -18,7 +18,7 @@ public class NoticeWrite : MonoBehaviour
         post.title = "";
         post.content = "";
         post.commentsNum = 0;
-        post.comments = new Dictionary<int, string>();
+        //post.comments = new Dictionary<int, string>();
 
         title.text = "";
         content.text = "";

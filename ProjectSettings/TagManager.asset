@@ -8,6 +8,8 @@ TagManager:
   - Content
   - PostView
   - PostList
+  - NVP
+  - Timetable
   layers:
   - Default
   - TransparentFX

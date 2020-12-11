@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 7823837294353135889}
   m_Layer: 5
   m_Name: NoticeListPrefab
-  m_TagString: Untagged
+  m_TagString: NVP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

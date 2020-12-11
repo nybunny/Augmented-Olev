@@ -43,6 +43,8 @@ public class LostOrFoundItem : MonoBehaviour
     public void LoadImage(Texture2D image)
     {
         item.image = Resources.Load<Sprite>(image.name);
+        byte[] texAsByte = image.EncodeToJPG();
+        item.imageToString = Convert.ToBase64String(texAsByte);
     }
 
     public void LoadPhoto()

@@ -19,12 +19,6 @@ public class ToBoard : MonoBehaviour
         post.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Vector2 touchPosition = Input.GetTouch(0).position;
-        
-    }
 
     public void GoToLostAndFoundWrite()
     {
